@@ -1,10 +1,10 @@
-import express from 'express';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import { v4 as uuidv4 } from 'uuid';
-import dotenv from 'dotenv';
+const express = require('express');
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBDocumentClient, PutCommand, ScanCommand } = require('@aws-sdk/lib-dynamodb');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const { v4: uuidv4 } = require('uuid');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
