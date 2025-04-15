@@ -14,7 +14,7 @@ const Build = ({dragged, setDragged}) => {
         <div className="flex-col flex gap-4">
             {TypeDef_Components.map((item) => {
                 return (
-                    <DraggableItem item={item} press={dragged} setPress={setDragged}></DraggableItem>
+                    <DraggableItem key={item.id} item={item} press={dragged} setPress={setDragged}></DraggableItem>
                 )
             })}
         </div>

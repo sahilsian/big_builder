@@ -17,13 +17,13 @@ const TextInput = ({ selectedNode, setSelectedNode, node }) => {
         node.metadata.text.content = e.target.value;
     };
 
-    const handleSaveShortcut = (e) => {
+    const handleSaveShortcut = useCallback((e) => {
         if ((e.ctrlKey || e.metaKey) && e.key === "s") {
             e.preventDefault();
             setSelectedNode(null);
             console.log("Saving...", text);
         }
-    };
+    }, [text, setSelectedNode]);
 
     useEffect(()=> {
         console.log("BOUNCE: ", bounce)
@@ -39,7 +39,7 @@ const TextInput = ({ selectedNode, setSelectedNode, node }) => {
         return () => {
             window.removeEventListener("keydown", handleSaveShortcut);
         };
-    }, [text]); 
+    }, [handleSaveShortcut]);
 
 
     return (

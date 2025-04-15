@@ -14,23 +14,21 @@ const DraggableItem = ({ item, press, setPress = () => { } }) => {
         window.addEventListener("mousemove", handleMouseMove);
 
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    })
+    }, [])
 
     useEffect(() => {
         const handleMouseUp = () => {
-            setPress({id: item.id, isPressed: false});
-            setMousePos({ x: 0, y: 0 })
+            setPress({ id: item.id, isPressed: false });
+            setMousePos({ x: 0, y: 0 });
         };
-
+    
         window.addEventListener("mouseup", handleMouseUp);
-
+    
         return () => {
             window.removeEventListener("mouseup", handleMouseUp);
         };
-    }, [setPress]);
-
-
-
+    }, [setPress, item.id]); 
+    
     return (
         <div className="relative">
             {(press.isPressed && item.id == press.id) &&
