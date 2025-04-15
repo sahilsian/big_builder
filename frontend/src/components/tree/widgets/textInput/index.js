@@ -1,5 +1,5 @@
 import { Context } from "@/context/context_provider";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 const TextInput = ({ selectedNode, setSelectedNode, node }) => {
     const {bounce} = useContext(Context)
